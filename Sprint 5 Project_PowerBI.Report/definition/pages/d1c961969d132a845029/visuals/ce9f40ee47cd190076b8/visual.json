@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ce9f40ee47cd190076b8",
   "position": {
-    "x": 0,
-    "y": 451.99016654035972,
-    "z": 1,
+    "x": 336,
+    "y": 584,
+    "z": 2000,
     "height": 452,
     "width": 484,
-    "tabOrder": 1
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "donutChart",
@@ -87,21 +87,21 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Delivery Method Most frequently used'"
+                  "Value": "'Most Frequent Delivery Methods'"
                 }
               }
             },
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'left'"
+                  "Value": "'center'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "20D"
                 }
               }
             },

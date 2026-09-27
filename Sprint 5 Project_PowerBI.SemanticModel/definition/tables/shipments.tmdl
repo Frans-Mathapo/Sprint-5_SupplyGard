@@ -1,6 +1,15 @@
 table shipments
 	lineageTag: 536a2b6f-da6a-4bfb-a320-d382155d7c55
 
+	measure Measure
+		lineageTag: 3e86249d-c008-4cc6-83b9-5610f027ae04
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Total Shipment' = COUNT(shipments[shipment_id])
+		formatString: 0
+		lineageTag: 22823fba-f772-437e-8d22-73a340615bf5
+
 	column shipment_id
 		dataType: string
 		lineageTag: 2c34f10e-6641-4652-8bea-fd9c68c15d93

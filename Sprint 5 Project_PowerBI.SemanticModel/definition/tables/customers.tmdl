@@ -1,6 +1,10 @@
 table customers
 	lineageTag: 6215e2f0-36f4-44d0-ace1-0230105c5aac
 
+	measure 'Totaol Customers' = COUNT(customers[customer_id])
+		formatString: 0
+		lineageTag: 3b40b92e-30fa-4fc1-913a-2a23dfcb4983
+
 	column customer_id
 		dataType: string
 		lineageTag: b92921ef-9f16-4c0c-9773-d9bb06a42b8e
