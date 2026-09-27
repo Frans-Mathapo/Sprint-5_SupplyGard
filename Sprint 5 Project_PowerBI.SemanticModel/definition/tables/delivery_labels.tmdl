@@ -1,6 +1,15 @@
 table delivery_labels
 	lineageTag: 78aabb3d-0f81-47ec-a049-2b789664a309
 
+	measure 'Delayed Deliveries' =
+			
+			CALCULATE(
+			COUNTROWS(delivery_labels),
+			delivery_labels[is_late] = 1
+			)
+		formatString: 0
+		lineageTag: 87bfabe1-4f48-41f8-9fc6-87319c0f707a
+
 	column delivery_id
 		dataType: string
 		lineageTag: 329daa7f-6dcf-4401-9136-bafce1e20cf3

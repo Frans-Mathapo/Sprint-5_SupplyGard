@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "b41156659801d7728674",
   "position": {
-    "x": 336,
-    "y": 132,
+    "x": 336.10205527994333,
+    "y": 100.69454287739192,
     "z": 1000,
-    "height": 451.99016654035972,
-    "width": 483.78846971405335,
+    "height": 363.31679659815734,
+    "width": 959.3196314670447,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "donutChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "shipments"
+                      "Entity": "customers"
                     }
                   },
-                  "Property": "shipment_type"
+                  "Property": "province"
                 }
               },
-              "queryRef": "shipments.shipment_type",
-              "nativeQueryRef": "shipment_type",
+              "queryRef": "customers.province",
+              "nativeQueryRef": "province",
               "active": true
             }
           ]
@@ -41,17 +41,17 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "shipments"
+                          "Entity": "customers"
                         }
                       },
-                      "Property": "shipment_id"
+                      "Property": "customer_id"
                     }
                   },
                   "Function": 5
                 }
               },
-              "queryRef": "CountNonNull(shipments.shipment_id)",
-              "nativeQueryRef": "Count of shipment_id"
+              "queryRef": "CountNonNull(customers.customer_id)",
+              "nativeQueryRef": "Count of customer_id"
             }
           ]
         }
@@ -65,10 +65,10 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "shipments"
+                        "Entity": "customers"
                       }
                     },
-                    "Property": "shipment_id"
+                    "Property": "customer_id"
                   }
                 },
                 "Function": 5
@@ -90,41 +90,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "labelOverflow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "enableBackground": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "enableValueDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "enableTitleDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "enableDetailDataLabel": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
             }
           }
         }
@@ -133,32 +98,6 @@
         {
           "properties": {
             "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -183,7 +122,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Most Common Shipment Types'"
+                  "Value": "'customer segment generates the highest shipping value'"
                 }
               }
             },
@@ -297,5 +236,42 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e1ac8c9b5463d30e2116",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customers"
+              }
+            },
+            "Property": "province"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "941860554ac31064c20d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "customers"
+                  }
+                },
+                "Property": "customer_id"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

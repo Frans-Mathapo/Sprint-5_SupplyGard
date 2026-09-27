@@ -9,6 +9,10 @@ table customers
 		formatString: 0
 		lineageTag: 44736939-d565-416b-99ec-208c1deae712
 
+	measure 'Shipment Frequency' = COUNT(shipments[shipment_id])
+		formatString: 0
+		lineageTag: e2c62414-d8d9-48ab-a9bb-0ee7b31414b8
+
 	column customer_id
 		dataType: string
 		lineageTag: b92921ef-9f16-4c0c-9773-d9bb06a42b8e

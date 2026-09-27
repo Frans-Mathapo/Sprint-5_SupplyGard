@@ -4,10 +4,10 @@
   "position": {
     "x": 12,
     "y": 132,
-    "z": 9000,
+    "z": 5000,
     "height": 226,
     "width": 314,
-    "tabOrder": 8000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -208,5 +208,34 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2e525b759dd0c097dd27",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "shipments"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "shipment_date"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
