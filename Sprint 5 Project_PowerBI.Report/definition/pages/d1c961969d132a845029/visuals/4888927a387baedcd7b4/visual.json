@@ -23,11 +23,11 @@
                       "Entity": "customers"
                     }
                   },
-                  "Property": "Totaol Customers"
+                  "Property": "Total Customers"
                 }
               },
               "queryRef": "customers.Totaol Customers",
-              "nativeQueryRef": "Totaol Customers"
+              "nativeQueryRef": "Total Customers"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "customers"
                   }
                 },
-                "Property": "Totaol Customers"
+                "Property": "Total Customers"
               }
             },
             "direction": "Descending"

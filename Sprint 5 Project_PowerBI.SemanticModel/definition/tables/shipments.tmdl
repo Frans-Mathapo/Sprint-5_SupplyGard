@@ -6,7 +6,7 @@ table shipments
 
 		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
 
-	measure 'Total Shipment' = COUNT(shipments[shipment_id])
+	measure 'Total Shipments' = COUNT(shipments[shipment_id])
 		formatString: 0
 		lineageTag: 22823fba-f772-437e-8d22-73a340615bf5
 
@@ -107,12 +107,24 @@ table shipments
 	column Day_Name = FORMAT(shipments[shipment_date],"dddd")
 		lineageTag: 86a37aa6-461f-49d5-be62-fe5ead650051
 		summarizeBy: none
+		sortByColumn: Day_Number
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
 	column Month_Year = FORMAT(shipments[shipment_date], "MM YYYY")
 		lineageTag: ecdb9ad3-86b4-4d97-bf97-9773564831a0
 		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day_Number = WEEKDAY(shipments[shipment_date], 2)
+		formatString: 0
+		lineageTag: ea07f15c-364a-4c4f-9b4d-52b23d79c336
+		summarizeBy: sum
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

@@ -23,11 +23,11 @@
                       "Entity": "shipments"
                     }
                   },
-                  "Property": "Total Shipment"
+                  "Property": "Total Shipments"
                 }
               },
               "queryRef": "shipments.Total Shipment",
-              "nativeQueryRef": "Total Shipment"
+              "nativeQueryRef": "Total Shipments"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "shipments"
                   }
                 },
-                "Property": "Total Shipment"
+                "Property": "Total Shipments"
               }
             },
             "direction": "Descending"
