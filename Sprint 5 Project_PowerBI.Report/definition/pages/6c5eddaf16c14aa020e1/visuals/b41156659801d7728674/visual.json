@@ -6,7 +6,7 @@
     "y": 100.69454287739192,
     "z": 1000,
     "height": 363.31679659815734,
-    "width": 959.3196314670447,
+    "width": 963.40184266477684,
     "tabOrder": 0
   },
   "visual": {
@@ -236,42 +236,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e1ac8c9b5463d30e2116",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "customers"
-              }
-            },
-            "Property": "province"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "941860554ac31064c20d",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "customers"
-                  }
-                },
-                "Property": "customer_id"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

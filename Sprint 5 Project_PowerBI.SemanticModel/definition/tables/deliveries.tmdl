@@ -1,6 +1,71 @@
 table deliveries
 	lineageTag: 8bd2bc56-52ea-46e0-8bc8-d1ab7dd97797
 
+	measure 'Distance 75th Percentile' =
+			
+			PERCENTILEX.INC(
+			    deliveries,
+			    deliveries[delivery_distance_km],
+			    0.75
+			)
+		lineageTag: bc863ef1-129a-4960-bc66-23e60270104c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Late Deliveries' =
+			
+			CALCULATE(
+			    COUNTROWS(delivery_labels),
+			    delivery_labels[is_late] = 1
+			)
+		formatString: 0
+		lineageTag: 0b165fd3-7926-4cbc-8794-c65d2f95909a
+
+	measure 'Duration 75th Percentile' =
+			
+			PERCENTILEX.INC(
+			    deliveries,
+			    deliveries[delivery_duration_hours],
+			    0.75
+			)
+		lineageTag: d490f9ad-ace7-4921-b665-251bd9895a34
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Repeated Customer Delay Score' =
+			
+			IF(
+			    [Late Deliveries] >= 2,
+			    20,
+			    0
+			)
+		formatString: 0
+		lineageTag: 57239d3e-fab5-464f-af7f-9b2fac4e6bba
+
+	measure 'Operational Risk Score' =
+			
+			MAX(delivery_labels[Late Delivery Score]) +
+			MAX(deliveries[Long Distance Score]) +
+			MAX(deliveries[Long Duration Score]) +
+			MAX(deliveries[High Risk Route Score]) +
+			[Repeated Customer Delay Score]
+		formatString: 0
+		lineageTag: 5e926a71-5d64-4039-862d-a95bc2a0f7ef
+
+	measure 'Risk Category' =
+			
+			VAR Score = [Operational Risk Score]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Score <= 30, "Low Risk",
+			    Score <= 60, "Medium Risk",
+			    Score <= 100, "High Risk",
+			    "Check Score"
+			)
+		lineageTag: 0c0c070f-8502-43c3-b6df-57f06fb36b3b
+
 	column delivery_id
 		dataType: string
 		lineageTag: a598f4ea-a35b-4784-ba30-b3319c8cb1d5
@@ -112,6 +177,46 @@ table deliveries
 		lineageTag: 0840e0e4-2194-4f11-be3c-07ad25780000
 		summarizeBy: sum
 		sourceColumn: delivery_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Distance Score' =
+			
+			IF(
+			    deliveries[delivery_distance_km] > 509.70,
+			    15,
+			    0
+			)
+		formatString: 0
+		lineageTag: e78c32f6-0ff9-404b-aa50-ab8ab6acdae1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Duration Score' =
+			
+			IF(
+			    deliveries[delivery_duration_hours] > 9.02,
+			    20,
+			    0
+			)
+		formatString: 0
+		lineageTag: e59b2760-3f0b-41aa-8bda-73fc7effab39
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'High Risk Route Score' =
+			
+			IF(
+			    [Long Distance Score] = 15 &&
+			    [Long Duration Score] = 20,
+			    20,
+			    0
+			)
+		formatString: 0
+		lineageTag: 2d3dab3e-ab76-4563-8c81-768a5c50d053
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

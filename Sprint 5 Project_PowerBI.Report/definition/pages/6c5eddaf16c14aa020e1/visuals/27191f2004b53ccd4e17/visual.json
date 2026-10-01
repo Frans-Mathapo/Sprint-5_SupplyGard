@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "27191f2004b53ccd4e17",
   "position": {
-    "x": 1295.4589371980676,
-    "y": 785.31400966183583,
-    "z": 9003,
-    "height": 296,
-    "width": 625,
-    "tabOrder": 9003
+    "x": 1299.5038979447202,
+    "y": 772.89865343727854,
+    "z": 10000,
+    "height": 307.52657689581861,
+    "width": 617.77462792345852,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -110,20 +110,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "80f408ab39942d1a46a0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "delivery_labels"
-              }
-            },
-            "Property": "Delayed Deliveries"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "19366343a425448c2330",
         "field": {
           "Column": {
@@ -223,6 +209,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "c0cb3c9db791e0e77dcb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "delivery_labels"
+              }
+            },
+            "Property": "Delayed Deliveries"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

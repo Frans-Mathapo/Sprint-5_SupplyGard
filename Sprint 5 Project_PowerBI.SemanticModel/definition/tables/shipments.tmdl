@@ -128,6 +128,32 @@ table shipments
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Repeated Customer Delay Score' =
+			
+			VAR CurrentCustomer = shipments[customer_id]
+			
+			VAR NumberOfLateDeliveries =
+			    CALCULATE(
+			        COUNTROWS(delivery_labels),
+			        delivery_labels[is_late] = 1,
+			        FILTER(
+			            ALL(shipments),
+			            shipments[customer_id] = CurrentCustomer
+			        )
+			    )
+			
+			RETURN
+			    IF(
+			        NumberOfLateDeliveries >= 2,
+			        20,
+			        0
+			    )
+		formatString: 0
+		lineageTag: 6295e489-9b5d-479b-ad30-d6a9189faaea
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition shipments = m
 		mode: import
 		source =

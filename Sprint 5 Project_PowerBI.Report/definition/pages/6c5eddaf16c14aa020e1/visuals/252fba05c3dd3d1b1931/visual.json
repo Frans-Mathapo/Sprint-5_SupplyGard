@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "252fba05c3dd3d1b1931",
   "position": {
-    "x": 1292.3671497584542,
-    "y": 490.048309178744,
-    "z": 9002,
-    "height": 293.719806763285,
-    "width": 626.08695652173913,
-    "tabOrder": 9002
+    "x": 1299.5038979447202,
+    "y": 489.86534372785263,
+    "z": 9000,
+    "height": 283.03330970942596,
+    "width": 619.13536498936924,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -93,20 +93,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "35bb9b89d02770d545b0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "customers"
-              }
-            },
-            "Property": "Shipment Frequency"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "4a146db41ac1c8dae5a0",
         "field": {
@@ -207,6 +193,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "c7b72b31ac04ab9e4acc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customers"
+              }
+            },
+            "Property": "Shipment Frequency"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cf7da0e7374d00358749",
   "position": {
-    "x": 1292.8720836685438,
-    "y": 100.40225261464201,
-    "z": 7000,
-    "height": 389.70443349753691,
-    "width": 626.45320197044327,
-    "tabOrder": 7000
+    "x": 1300.1727730684415,
+    "y": 99.439600234680043,
+    "z": 6000,
+    "height": 389.17080085046069,
+    "width": 620.49610205528,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "barChart",
@@ -124,42 +124,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "284239a21c59a8e848aa",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "customers"
-              }
-            },
-            "Property": "customer_type"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f3598fb06d1372766c2d",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "shipments"
-                  }
-                },
-                "Property": "customer_id"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

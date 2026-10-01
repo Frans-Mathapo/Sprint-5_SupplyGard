@@ -48,37 +48,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b18bc60c06d6585e4139",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "customers"
-              }
-            },
-            "Property": "province"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "dd57afeb033ea2eab1e7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "customers"
-              }
-            },
-            "Property": "Shipment Volumes"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

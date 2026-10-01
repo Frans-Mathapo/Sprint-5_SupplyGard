@@ -35,6 +35,19 @@ table delivery_labels
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Late Delivery Score' =
+			
+			IF(
+			    delivery_labels[is_late] = 1,
+			    25,
+			    0
+			)
+		formatString: 0
+		lineageTag: 05a6cd4c-ae9c-481d-a515-40776fc4191b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition delivery_labels = m
 		mode: import
 		source =
